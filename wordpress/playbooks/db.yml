@@ -1,0 +1,13 @@
+---
+- name: my db play
+  hosts: db
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: include role mysql
+      include_role: 
+        name: mysql
+      vars:
+
+...

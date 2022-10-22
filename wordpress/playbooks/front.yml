@@ -4,10 +4,10 @@
   gather_facts: yes
   become: yes
 
-  tasks:    
-    - name: install nginx
-      apt:
-        name: nginx
+  # tasks:    
+  #   - name: install nginx
+  #     apt:
+  #       name: nginx
 
     # - name: replace default nging config
     #   copy:
@@ -25,9 +25,9 @@
     #   notify: restart nginx
 
   # любой notify отщелкивается только в конце play
-  handlers:
-    - name: restart nginx
-      systemd:
-        name: nginx
-        state: restarted
+  # handlers:
+  #   - name: restart nginx
+  #     systemd:
+  #       name: nginx
+  #       state: restarted
 ...
