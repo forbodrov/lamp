@@ -1,2 +1,6 @@
 ---
+- name: my app play
+  hosts: app
+  gather_facts: yes
+  become: yes
 ...

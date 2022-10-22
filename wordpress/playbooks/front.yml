@@ -1,6 +1,6 @@
 ---
 - name: my front play
-  hosts: all
+  hosts: front
   gather_facts: yes
   become: yes
 

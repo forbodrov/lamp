@@ -1,0 +1,15 @@
+---
+- name: install php
+  apt:
+    pkg: "{{ item }}"
+  with_items:
+    - php7.2
+    - php7.2-fpm
+    - php7.2-cgi
+    - php7.2-memcache
+    - php7.2-memcached
+    - php7.2-mysql
+    - php7.2-gd
+    - php7.2-curl
+    - php7.2-xmlrpc
+...

@@ -10,4 +10,10 @@
         name: mysql
       vars:
 
+  tasks:
+    - name: include rote php
+      include_role:
+        name: php
+      vars:
+
 ...
