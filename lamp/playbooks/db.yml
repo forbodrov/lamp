@@ -11,7 +11,7 @@
       vars:
 
   tasks:
-    - name: include rote php
+    - name: include role php
       include_role:
         name: php
       vars:

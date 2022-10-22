@@ -1,0 +1,5 @@
+---
+mysql_root_password: "{{ db_root_password }}"
+db_user: godadmin
+db_password: 7f7g7H8H9h!
+...
