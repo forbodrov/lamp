@@ -1,11 +1,10 @@
 data "vkcs_compute_flavor" "compute" {
-  # name = "Basic-1-2-20"
-  name = "Standard-2-2-20"
+  #  name = "Basic-1-2-20"
+  name = "Standard-2-4-40"
 }
 
 data "vkcs_images_image" "compute" {
-  # name = "Ubuntu-18.04-Standard"
-  name = "Ubuntu-22.04-Standard"
+  name = "Ubuntu-18.04-Standard"
 }
 
 resource "vkcs_compute_instance" "compute" {
