@@ -1,6 +1,6 @@
 data "vkcs_compute_flavor" "compute" {
-  #  name = "Basic-1-2-20"
-  name = "Standard-2-4-40"
+  name = "Basic-1-2-20"
+  #name = "Standard-2-4-40"
 }
 
 data "vkcs_images_image" "compute" {
