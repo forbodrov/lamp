@@ -8,10 +8,10 @@
 В lamp/env/dev/inventory перечислены настройки подключения к VM, перед запуском плейбука необходимо указать <IP-адрес> подключения в ansible_host=
 для запуск плейбука ansbile необхоимо перейти ~/Projects/homework/lamp и выполнить команду:
 > ansible-playbook -i env/dev/inventory site.yml
-Заходим на сайт <IP-адрес> в браузере, производим первичную настройку wordpress:
+Заходим на сайт http://<IP-адрес> в браузере, производим первичную настройку wordpress:
 
 ## /keys
-Тут храним .pub ключи для terraform и ansible
+Тут храним .pub и .private ключи для terraform и ansible
 
 ## 1. /terraform ~ автоматическая установка VM с помощью terraform
 Создание ВМ в облаке VKcloud
