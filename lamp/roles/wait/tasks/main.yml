@@ -1,5 +1,4 @@
 ---
 - name: Wait for unattended upgrade to be finished
   ansible.builtin.raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
-# Убунту обновляется после установки до 20 минут, ждём завершения, пьём кофе.
 ...

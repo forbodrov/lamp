@@ -14,10 +14,4 @@
       include_role: 
         name: mysql
       vars:
-      
-    - name: include role php
-      include_role:
-        name: php
-      vars:
-
 ...

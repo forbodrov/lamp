@@ -5,35 +5,13 @@
   become: yes
 
   tasks:
+  - name: include role php
+    include_role:
+      name: php
+    vars:
+
   - name: include role nginx
     include_role: 
       name: nginx
     vars:
-
-  # tasks:    
-  #   - name: install nginx
-  #     apt:
-  #       name: nginx
-
-    # - name: replace default nging config
-    #   copy:
-    #     dest: /etc/nginx/sites-enabled/default
-    #     content: |
-    #       server {
-    #         listen 80;
-    #         server_name _;
-
-    #         location / {
-    #           include uwsgi_params;
-    #           uwsgi_pass uwsgi://{{ local_pytime_socket }};
-    #         }
-    #       }
-    #   notify: restart nginx
-
-  # любой notify отщелкивается только в конце play
-  # handlers:
-  #   - name: restart nginx
-  #     systemd:
-  #       name: nginx
-  #       state: restarted
 ...

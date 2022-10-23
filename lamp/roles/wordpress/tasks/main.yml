@@ -15,7 +15,7 @@
     login_user: "root"
     login_password: "{{ mysql_root_password }}"
 
-- name: install nginx configuration
+- name: create nginx configuration
   template:
     src: wordpress.conf
     dest: /etc/nginx/sites-available/wordpress.conf
@@ -41,6 +41,12 @@
 
 - name: unpack wordpress
   shell: "tar xvfz /tmp/latest.tar.gz -C {{ wp_directory }}"
+
+- name: create wp-config.php
+  template:
+    src: "wp-config.php"
+    dest: "{{ wp_directory }}//wp-config.php"
+  #when: pytime_redis_bind is defined
 
 - name: chown wordpress
   shell: "chown -R www-data:www-data {{ wp_directory }}"
