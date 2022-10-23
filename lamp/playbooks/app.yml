@@ -9,4 +9,12 @@
     include_role: 
       name: wordpress
     vars:
+      mysql_root_password: "{{ pb_mysql_root_password }}"
+      db_name: "wordpress"
+      db_user: "godadmin"
+      db_password: "7f7g7H8H9h!"
+      wp_domain: "example.com"
+      wp_download_url: "http://wordpress.org/latest.tar.gz"
+      wp_directory: "/var/www"
+      wp_table_prefix: "wp_"
 ...

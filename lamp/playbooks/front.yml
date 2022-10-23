@@ -8,10 +8,8 @@
   - name: include role php
     include_role:
       name: php
-    vars:
 
   - name: include role nginx
     include_role: 
       name: nginx
-    vars:
 ...
