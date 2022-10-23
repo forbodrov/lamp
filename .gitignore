@@ -1,4 +1,2 @@
 **/.terraform
 terraform/terraform.lock.hcl
-keys/id_rsa
-keys/id_rsa.pub
