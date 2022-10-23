@@ -21,12 +21,6 @@
     dest: /etc/nginx/sites-available/wordpress.conf
   notify: restart nginx
 
-- name: activate nginx configuration
-  file:
-    src: /etc/nginx/sites-available/wordpress.conf
-    dest: /etc/nginx/sites-enabled/wordpress.conf
-    state: link
-
 - name: download wordpress
   get_url:
     url: "{{ wp_download_url }}"
@@ -46,11 +40,15 @@
   template:
     src: "wp-config.php"
     dest: "{{ wp_directory }}//wp-config.php"
-  #when: pytime_redis_bind is defined
+  when: wp_directory is defined
 
-- name: chown wordpress
+- name: chown {{ wp_directory }}
   shell: "chown -R www-data:www-data {{ wp_directory }}"
+
+- name: activate nginx configuration
+  file:
+    src: /etc/nginx/sites-available/wordpress.conf
+    dest: /etc/nginx/sites-enabled/wordpress.conf
+    state: link
   notify: restart nginx
-
-
 ...
