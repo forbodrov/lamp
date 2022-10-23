@@ -1,0 +1,11 @@
+---
+- name: my wait play
+  hosts: db
+  gather_facts: yes
+  become: yes
+# Ждём, пока Ubuntu закончит обновление
+  tasks:
+    - name: include role wait
+      include_role:
+        name: wait
+...
