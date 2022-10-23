@@ -5,12 +5,16 @@
   become: yes
 
   tasks:
+    - name: include role wait
+      include_role:
+        name: wait
+      vars:
+
     - name: include role mysql
       include_role: 
         name: mysql
       vars:
-
-  tasks:
+      
     - name: include role php
       include_role:
         name: php

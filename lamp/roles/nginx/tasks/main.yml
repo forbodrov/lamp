@@ -2,7 +2,12 @@
 - name: install nginx
   apt:
     pkg: "{{ item }}"
-    update_cahe: yes
-  var:
+    update_cache: yes
+  with_items:
     - nginx
+
+- name: disable default site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
 ...

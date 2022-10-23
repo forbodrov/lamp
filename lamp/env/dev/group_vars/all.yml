@@ -1,3 +1,4 @@
 ---
-db_root_password: jaknsb##dhj!qvbjQQ~@1347y812giuye4
+# pb_mysql_root_password: "jaknsb##dhj!qvbjQQ~@1347y812giuye4"
+pb_mysql_root_password: 123123bb
 ...

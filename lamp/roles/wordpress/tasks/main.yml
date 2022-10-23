@@ -24,13 +24,13 @@
 - name: activate nginx configuration
   file:
     src: /etc/nginx/sites-available/wordpress.conf
-    dst: /etc/nginx/sites-enabled/wordpress.conf
-    state: 'link'
+    dest: /etc/nginx/sites-enabled/wordpress.conf
+    state: link
 
 - name: download wordpress
   get_url:
     url: "{{ wp_download_url }}"
-    dest: /tmp/latest/tar.gz
+    dest: /tmp/latest.tar.gz
 
 - name: create wordpress directory
   file:
@@ -40,10 +40,11 @@
     group: "www-data"
 
 - name: unpack wordpress
-  shell: "tar xvfz /tmp/latest/tar.gz -C {{ wp_directory }}"
+  shell: "tar xvfz /tmp/latest.tar.gz -C {{ wp_directory }}"
 
 - name: chown wordpress
   shell: "chown -R www-data:www-data {{ wp_directory }}"
+  notify: restart nginx
 
 
 ...
