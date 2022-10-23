@@ -12,7 +12,7 @@ provider "vkcs" {
     username = "dmabodrov@greenatom.ru"
 
     # The password of the account
-    password = "abiRV722"
+    password = "123"
 
     # The tenant token can be taken from the project Settings tab - > API keys.
     # Project ID will be our token.
