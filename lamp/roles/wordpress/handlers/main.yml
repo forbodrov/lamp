@@ -1,6 +1,14 @@
 ---
+- name: disabled apache2
+  # ansible.builtin.service:
+  systemd: 
+    name: apache2
+    state: stopped
+    enabled: no
+
 - name: restart nginx
   systemd:
     name: nginx
     state: restarted
+
 ...

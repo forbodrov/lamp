@@ -19,7 +19,6 @@
   template:
     src: wordpress.conf
     dest: /etc/nginx/sites-available/wordpress.conf
-  notify: restart nginx
 
 - name: download wordpress
   get_url:
@@ -45,10 +44,13 @@
 - name: chown {{ wp_directory }}
   shell: "chown -R www-data:www-data {{ wp_directory }}"
 
+
 - name: activate nginx configuration
   file:
     src: /etc/nginx/sites-available/wordpress.conf
     dest: /etc/nginx/sites-enabled/wordpress.conf
     state: link
-  notify: restart nginx
+  notify: 
+    - disabled apache2
+    - restart nginx
 ...
