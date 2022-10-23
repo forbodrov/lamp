@@ -3,4 +3,10 @@
   hosts: app
   gather_facts: yes
   become: yes
+
+  tasks:
+  - name: include role wordpress
+    include_role: 
+      name: wordpress
+    vars:
 ...

@@ -4,6 +4,12 @@
   gather_facts: yes
   become: yes
 
+  tasks:
+  - name: include role nginx
+    include_role: 
+      name: nginx
+    vars:
+
   # tasks:    
   #   - name: install nginx
   #     apt:
