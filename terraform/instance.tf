@@ -8,7 +8,7 @@ data "vkcs_images_image" "compute" {
 }
 
 resource "vkcs_compute_instance" "compute" {
-  name                    = "user07-lamp"
+  name                    = "user07-homework"
   flavor_id               = data.vkcs_compute_flavor.compute.id
   security_groups         = ["default","all"]
   availability_zone       = "GZ1"

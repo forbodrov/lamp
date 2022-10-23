@@ -8,7 +8,7 @@
     - mysql-client
     - python3-mysqldb
 
-- name: change root password
+- name: change root password (ignore errors)
   mysql_user:
     name: root
     password: "{{ mysql_root_password }}"
