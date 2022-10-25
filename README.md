@@ -2,6 +2,10 @@
 1. автоматическая установка VM с помощью terraform
 2. автоматическая установка Wordpress на ранее созданную VM с помощью ansible
 
+## Подготовка
+public key для создаваемой вм необходимо положить здесь: 
+keys/id_rsa.pub
+
 ## Порядок запуска
 для работы с terraform необходимо перейти ~/Projects/homework/terraform и выполнить команду:
 > terraform apply
