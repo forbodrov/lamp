@@ -34,8 +34,14 @@
     owner: "www-data"
     group: "www-data"
 
+- name: get stats of file
+    stat:
+      path: {{ wp_directory }}//wp-config.php
+  register: sym
+
 - name: unpack wordpress
   shell: "tar xvfz /tmp/latest.tar.gz -C {{ wp_directory }}"
+  when: sym.stat.uslnk is not defined
 
 - name: create wp-config.php
   template:
