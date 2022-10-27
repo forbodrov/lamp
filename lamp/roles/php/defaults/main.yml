@@ -1,0 +1,4 @@
+php_version: 7.2
+php_etc_directory: "/etc/php/{{ php_version }}"
+php_run_directory: "/run/php"
+php_log_directory: "/var/log"

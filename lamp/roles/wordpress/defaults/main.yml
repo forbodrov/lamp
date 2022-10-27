@@ -7,4 +7,5 @@ wp_domain: "example.com"
 wp_download_url: "http://wordpress.org/latest.tar.gz"
 wp_directory: "/var/www"
 wp_table_prefix: "wp_"
+nginx_config_name: "wordpress"
 ...
