@@ -8,12 +8,19 @@
     - mysql-client
     - python3-mysqldb
 
-- name: change root password (ignore errors)
-  mysql_user:
-    name: root
-    password: "{{ mysql_root_password }}"
-  ignore_errors: yes
-  # При первой прокатке пароль рута пустой
-  # При второй вылетает ошибка доступа, игнорируем
+# TODO: нужно сменить пароль рута, если это первая прокатка
+#       при второй проходит проверка доступа к mysql
+- name: config mysql
+  block:
+    - name: checking access to mysql
+      mysql_info:
+        login_user: root
+        login_password: "{{ mysql_root_password }}"
+  rescue:
+    - name: change root password
+      mysql_user:
+        name: root
+        password: "{{ mysql_root_password }}"
+      # При первой прокатке пароль рута пустой
 
 ...
