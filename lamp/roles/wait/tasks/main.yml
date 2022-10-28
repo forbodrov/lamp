@@ -1,11 +1,13 @@
 ---
-# Устал ждать обнов, просто стопаю unattended-upgrades с форсом
-# дада это плохо, но ничего не поделаешь
-- name: stop unattended-upgrades force
+- name: stop unattended-upgrades force (дада это плохо, но ничего не поделаешь)
   systemd:
-    name: unattended-upgrades
+    name: "{{ item }}"
     state: stopped
     force: yes
+  with_items:
+    - unattended-upgrades
+    - apt-daily
+    - apt-daily-upgrade
 
 - name: Wait for unattended upgrade to be finished
   raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
