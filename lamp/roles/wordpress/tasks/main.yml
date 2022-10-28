@@ -52,6 +52,17 @@
 - name: chown {{ wp_directory }}
   shell: "chown -R www-data:www-data {{ wp_directory }}"
 
+- name: copy wordpress-dump.sql
+  template:
+    src: wordpress-dump.sql.j2
+    dest: "/tmp/wordpress-dump.sql"
+  when: wp_directory is defined
+
+- name: "crate db wordpress, Import from dump with using:{{ wordpress_hostname }}"
+  mysql_db:
+    state: import
+    name: wordpress
+    target: "/tmp/wordpress-dump.sql"
 
 - name: activate nginx configuration
   file:
