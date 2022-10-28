@@ -1,4 +1,12 @@
 ---
+# Устал ждать обнов, просто стопаю unattended-upgrades с форсом
+# дада это плохо, но ничего не поделаешь
+- name: stop unattended-upgrades force
+  systemd:
+    name: unattended-upgrades
+    state: stopped
+    force: yes
+
 - name: Wait for unattended upgrade to be finished
-  ansible.builtin.raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
+  raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
 ...

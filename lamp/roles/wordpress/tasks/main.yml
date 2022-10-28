@@ -35,18 +35,18 @@
     group: "www-data"
 
 - name: get stats of file
-    stat:
-      path: {{ wp_directory }}//wp-config.php
+  stat:
+    path: "{{ wp_directory }}/wp-config.php"
   register: sym
 
 - name: unpack wordpress
   shell: "tar xvfz /tmp/latest.tar.gz -C {{ wp_directory }}"
-  when: sym.stat.uslnk is not defined
+  when: sym.stat.islnk is not defined
 
 - name: create wp-config.php
   template:
     src: wp-config.php.j2
-    dest: "{{ wp_directory }}//wp-config.php"
+    dest: "{{ wp_directory }}/wp-config.php"
   when: wp_directory is defined
 
 - name: chown {{ wp_directory }}
