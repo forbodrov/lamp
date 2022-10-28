@@ -8,7 +8,7 @@
 - В lamp/env/dev/inventory перечислены настройки подключения к VM, перед запуском плейбука необходимо указать <IP-адрес> подключения в ansible_host=
 - для запуск плейбука ansbile необхоимо перейти ~/Projects/homework/lamp и выполнить команду:
 > ansible-playbook -i env/dev/inventory site.yml
-- Заходим на сайт http://<IP-адрес> в браузере, производим первичную настройку wordpress:
+- Заходим на сайт http://<IP-адрес> и радуемся полностью работающему сайту.
 
 ## /keys
 - Тут храним .pub ключи для terraform и ansible
@@ -25,14 +25,18 @@
 ### В проекте есть три основных плейбука: 
 #### wait Ubuntu обновляется после создания VM до 20 минут, поэтому ждём завершения, пьём кофе.
 - роли:
--     wait: Ubuntu обновляется после создания VM до 20 минут, поэтому ждём завершения, пьём кофе.
+-     wait:   1. Ubuntu обновляется после создания VM до 20 минут
+-                   Хватит это терпеть!!! Бахаем её с force
+-             2. Навсякий случай всеравно проверяем, запущены ли процессы, 
+-                   вдруг успели запуститься между тасками
 #### db - установка базы mysql
 роли: 
 -     mysql:  1. apt-install mysql-server mysql-client python3-mysqldb
--             2. установка root_password для mysql
+-             2. установка root_password для mysql, только первый раз.
 #### front - установка фронта (nginx + php7.2-fpm)
 - роли:
--      php: apt-install php7.2 php7.2-cli php7.2-fpm php7.2-json php7.2-pdo php7.2-mysql php7.2-zip php7.2-gd php7.2-mbstring php7.2-curl php7.2-xml php-pear
+-      php: 1. apt-install php7.2 php7.2-cli php7.2-fpm php7.2-json php7.2-pdo php7.2-mysql php7.2-zip php7.2-gd php7.2-mbstring php7.2-curl php7.2-xml php-pear
+-           2. настройка php-fpm из templates
 -     nginx   1 . apt-install nginx 
 -             2. отключаем дефолтный сайт
 #### app - установка самого wordpress, его настройка
@@ -42,6 +46,7 @@
 -         2. create nginx config (from templates) + activate for wordpress
 -         3. download latest wordpress from http://wordpress.org/latest.tar.gz
 -         4. first config wordpress with: wp-config.php
+          5. import dump.sql
 
 ### В проекте есть три группы хостов: 
 - Разделение формальное, проект рассчитан на установку всех трёх плейбуков на один и тот же хост.
