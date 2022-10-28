@@ -1,4 +1,3 @@
 keys/id_rsa.pub
 terraform/**/.terraform
 terraform/.terraform.lock.hcl
-terraform/vkcs_provider.tf
